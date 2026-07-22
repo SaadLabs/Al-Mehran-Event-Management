@@ -1,0 +1,302 @@
+/* ==== Basic Reset & Typography ==== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --primary-color: #4f46e5;
+    --primary-dark: #4338ca;
+    --secondary-color: #7c3aed;
+    --light-color: #f9fafb;
+    --dark-color: #1f2937;
+    --gray-color: #6b7280;
+    --catering-color: #f59e0b;
+    --lighting-color: #2563eb;
+    --decoration-color: #7c3aed;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    /* color: var(--dark-color); */
+    background-color: #171819;
+    color: white;
+    padding: 20px;
+    }
+
+/* Urdu text styling */
+.menu h1,
+.menu-header,
+.menu-item .item-name {
+    font-family: 'Noto Sans Urdu', sans-serif;
+    font-weight: 500;
+}
+
+.menu h1 {
+    font-weight: 600;
+}
+
+.menu-header .item-name,
+.menu-item .item-name {
+    text-align: right;
+    direction: rtl;
+}
+      
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .section-padding {
+    padding: 80px 0;
+  }
+  
+  @media (max-width: 768px) {
+    .section-padding {
+      padding: 60px 0;
+    }
+  }
+  
+  /* ==== Header & Navigation ==== */
+  .header {
+    background-color: transparent;
+  box-shadow: none;
+  transition: background-color 0.6s ease, box-shadow 0.6s ease; /* slower transition */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  direction: ltr;
+}
+
+/* New class when scrolled */
+.header.scrolled {
+  background-color: #0E0D0C; /* or use #1f2937 directly */
+  box-shadow: var(--shadow);
+}
+  
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+  }
+  
+  .logo h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: whitesmoke;
+  }
+  
+  .logo span {
+    color: var(--primary-color);
+  }
+  
+  .nav-menu {
+    display: flex;
+    list-style: none;
+  }
+  
+  .nav-link {
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .nav-link:hover, .nav-link.active {
+    color: var(--primary-color);
+  }
+  
+  .menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  @media (max-width: 768px) {
+    .nav {
+  position: fixed;
+  top: -100vh; /* Hide above the screen */
+  left: 0;
+  width: 100%;
+   height: 50vh; /* Only 40% of the viewport height */
+  background-color: var(--dark-color);
+  transition: top 0.4s ease;
+  z-index: 99;
+  box-shadow: var(--shadow);
+}
+
+.nav.active {
+  top: 80px; /* Slide down from below the header */
+}
+
+.nav-menu {
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+}
+
+.nav-link {
+  padding: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+    
+    .menu-toggle {
+      display: block;
+       color: var(--white);
+    }
+  }
+    
+
+
+    .menu {
+  max-width: 700px;
+  margin: auto;
+  padding-top: 100px; /* Push content below fixed header */
+  direction: rtl; /* Only the menu content should be RTL */
+}
+
+    .menu h1 {
+      color: rgb(210, 172, 106);
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .menu-header, .menu-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      padding: 10px 0;
+      font-size: 14px;
+      border-bottom: 1px solid #ddd;
+      align-items: center;
+    }
+
+    .menu-header {
+      font-weight: bold;
+      border-bottom: 2px solid #aaa;
+      background-color: #0E0D0C;
+      padding: 12px 0;
+    }
+
+    /* Item styling */
+    .item-price {
+      color: #27ae60;
+      font-weight: 500;
+      text-align: left;
+    }
+
+    .item-amount {
+      text-align: center;
+    }
+
+    .item-name {
+      text-align: right;
+    }
+
+    /* Header specific styling */
+    .menu-header .item-price {
+      color: white;
+      font-weight: bold;
+    }
+
+    .menu-header .item-amount,
+    .menu-header .item-name {
+      font-weight: bold;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      .menu-header, .menu-item {
+        grid-template-columns: 0.8fr 0.7fr 1fr;
+        font-size: 13px;
+        gap: 5px;
+      }
+
+      .item-price {
+        font-size: 12px;
+      }
+
+      .menu {
+        padding: 100px 10px 20px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .menu-header, .menu-item {
+        grid-template-columns: 0.7fr 0.6fr 1fr;
+        font-size: 12px;
+        padding: 8px 0;
+      }
+
+      .item-price {
+        font-size: 11px;
+      }
+
+    }
+
+
+    /* whatsapp button css */
+
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  overflow: hidden; /* Ensures nothing spills out */
+}
+
+.whatsapp-icon {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  transform-origin: center; /* Zooms from center */
+  margin-bottom: 3px; /* Pushes icon slightly down */
+}
+
+.whatsapp-float:hover {
+  background-color: #128C7E;
+}
+
+.whatsapp-float:hover .whatsapp-icon {
+  transform: scale(1.2); /* Controlled zoom */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+  .whatsapp-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 2px; /* Slightly less push on mobile */
+  }
+}
