@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
   //   });
   // }
 
-  window.addEventListener('scroll', highlightNavLink);
+  // window.addEventListener('scroll', highlightNavLink);
 
   // Add animation classes to elements when they enter viewport
   const animateElements = document.querySelectorAll('.service-card, .testimonial-card');

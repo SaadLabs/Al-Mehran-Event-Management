@@ -24,7 +24,7 @@
 body {
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
-  /* color: var(--dark-color); */
+  color: var(--dark-color);
   background-color: var(--light-color);
 }
 
@@ -253,7 +253,7 @@ body {
 }
 
 .btn-secondary {
-  /* background-color: ; */
+  background-color: rgba(210, 172, 106, 0.15);
   border: 1px solid rgb(210, 172, 106);
   color: white;
 }
