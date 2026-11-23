@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact - Al Mehran Events Management</title>
-  <meta name="description" content="Professional catering and event services for weddings, corporate events, and special occasions. Quality services to make your event memorable.">
+  <meta name="description"
+    content="Professional catering and event services for weddings, corporate events, and special occasions. Quality services to make your event memorable.">
   <!-- for nav bar -->
   <link rel="stylesheet" href="contact.css">
 
@@ -12,10 +14,11 @@
   <!-- Remixicon for icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
   <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-    <!-- Favicon for most browsers -->
+  <!-- Favicon for most browsers -->
   <link rel="icon" type="image/x-icon" href="../Favicons/favicon.ico">
 
   <!-- PNG favicons for different sizes -->
@@ -27,11 +30,12 @@
   <!-- Optional: For Android/Progressive Web Apps -->
   <link rel="apple-touch-icon" href="../Favicons/apple-touch-icon.png">
 
-    <!-- Email JS removed - using FormSubmit instead -->
+  <!-- Email JS removed - using FormSubmit instead -->
 
 </head>
+
 <body>
-<header class="header" id="home">
+  <header class="header" id="home">
     <div class="container">
       <div class="header-inner">
         <div class="logo">
@@ -55,7 +59,7 @@
   </header>
 
   <!-- Hero Section -->
-<section id="contact" class="hero">
+  <section id="contact" class="hero">
     <div class="container">
       <div class="hero-content">
         <h1 class="hero-title">Contact Us</h1>
@@ -65,185 +69,192 @@
     </div>
   </section>
 
-<!-- Contact Section -->
-    <section id="contact-form" class="contact-section">
-        <div class="container">
-            <div class="contact-container">
-                <div class="section-header">
-                    <h2 class="section-title">
-                        Let's Make Your Event <span class="title-gradient">Unforgettable</span>
-                    </h2>
-                    <p class="section-subtitle">
-                        Ready to plan your perfect event? Get in touch with our expert team and let's bring your vision to life.
-                    </p>
+  <!-- Contact Section -->
+  <section id="contact-form" class="contact-section">
+    <div class="container">
+      <div class="contact-container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Let's Make Your Event <span class="title-gradient">Unforgettable</span>
+          </h2>
+          <p class="section-subtitle">
+            Ready to plan your perfect event? Get in touch with our expert team and let's bring your vision to life.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Form -->
+          <div class="contact-form-container">
+            <div class="form-decoration"></div>
+
+            <div id="success-message" class="success-message hidden">
+              <i class="fas fa-check-circle success-icon"></i>
+              <h3 class="success-title">Thank You!</h3>
+              <p class="success-text">We'll get back to you within 24 hours.</p>
+            </div>
+
+            <div id="contact-form-content" class="form-content">
+              <h3 class="form-title">Send Us a Message</h3>
+
+              <!-- ✅ Use FormSubmit endpoint with your email -->
+              <form action="https://formsubmit.co/almehranevents@gmail.com" method="POST" id="contactForm"
+                class="contact-form">
+                <input type="hidden" name="_subject" value="New Contact Form Submission - Al Mehran Events">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="contact.html?sent=1">
+                <input type="hidden" name="_next" value="https://almehranevents.com/Contact/contact.html?sent=1">
+                <input type="hidden" name="_captcha" value="false">
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Full Name *</label>
+                    <input type="text" name="name" class="form-input" placeholder="Your full name" required>
+                    <span class="error-message"></span>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Email Address *</label>
+                    <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
+                    <span class="error-message"></span>
+                  </div>
                 </div>
 
-                <div class="contact-grid">
-                    <!-- Contact Form -->
-                    <div class="contact-form-container">
-                        <div class="form-decoration"></div>
-                        
-                        <div id="success-message" class="success-message hidden">
-                            <i class="fas fa-check-circle success-icon"></i>
-                            <h3 class="success-title">Thank You!</h3>
-                            <p class="success-text">We'll get back to you within 24 hours.</p>
-                        </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Phone Number *</label>
+                    <input type="tel" name="phone" class="form-input" placeholder="+92 1234567890" required>
+                    <span class="error-message"></span>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Event Type *</label>
+                    <select name="eventType" class="form-input" required>
+                      <option value="">Select event type</option>
+                      <option value="wedding">Wedding</option>
+                      <option value="corporate">Corporate Event</option>
+                      <option value="birthday">Birthday Party</option>
+                      <option value="anniversary">Anniversary</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <span class="error-message"></span>
+                  </div>
+                </div>
 
-                        <div id="contact-form-content" class="form-content">
-    <h3 class="form-title">Send Us a Message</h3>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Event Date</label>
+                    <input type="date" name="eventDate" class="form-input">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Number of Guests</label>
+                    <input type="number" name="guests" class="form-input" placeholder="Approximate guest count">
+                  </div>
+                </div>
 
-    <!-- ✅ Use FormSubmit endpoint with your email -->
-    <form action="https://formsubmit.co/almehranevents@gmail.com" method="POST" id="contactForm" class="contact-form">
+                <div class="form-group">
+                  <label class="form-label">Message *</label>
+                  <textarea name="message" rows="4" class="form-input form-textarea"
+                    placeholder="Tell us about your event vision..." required></textarea>
+                  <span class="error-message"></span>
+                </div>
 
-        <div class="form-row">
-            <div class="form-group">
-                <label class="form-label">Full Name *</label>
-                <input type="text" name="name" class="form-input" placeholder="Your full name" required>
-                <span class="error-message"></span>
+                <button type="submit" class="submit-button">
+                  <i class="fas fa-paper-plane"></i>
+                  <span>Send Message</span>
+                </button>
+              </form>
             </div>
-            <div class="form-group">
-                <label class="form-label">Email Address *</label>
-                <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
-                <span class="error-message"></span>
+
+          </div>
+
+          <!-- Contact Information -->
+          <div class="contact-info">
+            <!-- Contact Cards -->
+            <div class="contact-cards">
+              <div class="contact-card">
+                <div class="contact-icon contact-icon-blue">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-details">
+                  <h4 class="contact-title">Call Us</h4>
+                  <p class="contact-content">051 4447677</p>
+                  <p class="contact-content">Sardar Ibrar</p>
+                  <!-- <p class="contact-subcontent">Mon-Fri 9AM-6PM</p> -->
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="contact-icon contact-icon-green">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                  <h4 class="contact-title">Email Us</h4>
+                  <p class="contact-content">almehranevents@gmail.com</p>
+                  <p class="contact-subcontent">We respond within 24 hours</p>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="contact-icon contact-icon-purple">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-details">
+                  <h4 class="contact-title">Visit Us</h4>
+                  <p class="contact-content">Shop no 9, Ahmed Plaza</p>
+                  <p class="contact-subcontent">I-10 Markaz, Islamabad</p>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="contact-icon contact-icon-orange">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="contact-details">
+                  <h4 class="contact-title">Business Hours</h4>
+                  <p class="contact-content">Mon-Sun: 24 hours</p>
+                  <!-- <p class="contact-subcontent">Sat-Sun: 10AM-4PM</p> -->
+                </div>
+              </div>
             </div>
-        </div>
 
-        <div class="form-row">
-            <div class="form-group">
-                <label class="form-label">Phone Number *</label>
-                <input type="tel" name="phone" class="form-input" placeholder="+92 1234567890" required>
-                <span class="error-message"></span>
+            <!-- Map Placeholder -->
+            <div class="map-container">
+              <h4 class="map-title">Find Us</h4>
+              <div class="map-placeholder">
+
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d830.3750978517487!2d73.032055!3d33.644194!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df95a59c7c89ab%3A0xfa48570bb923f135!2sAl-Mehran%20Tent%20Service!5e0!3m2!1sen!2sus!4v1749453493281!5m2!1sen!2sus"
+                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+
+              </div>
             </div>
-            <div class="form-group">
-                <label class="form-label">Event Type *</label>
-                <select name="eventType" class="form-input" required>
-                    <option value="">Select event type</option>
-                    <option value="wedding">Wedding</option>
-                    <option value="corporate">Corporate Event</option>
-                    <option value="birthday">Birthday Party</option>
-                    <option value="anniversary">Anniversary</option>
-                    <option value="other">Other</option>
-                </select>
-                <span class="error-message"></span>
-            </div>
-        </div>
 
-        <div class="form-row">
-            <div class="form-group">
-                <label class="form-label">Event Date</label>
-                <input type="date" name="eventDate" class="form-input">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Number of Guests</label>
-                <input type="number" name="guests" class="form-input" placeholder="Approximate guest count">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Message *</label>
-            <textarea name="message" rows="4" class="form-input form-textarea" placeholder="Tell us about your event vision..." required></textarea>
-            <span class="error-message"></span>
-        </div>
-
-        <button type="submit" class="submit-button">
-            <i class="fas fa-paper-plane"></i>
-            <span>Send Message</span>
-        </button>
-    </form>
-</div>
-
-                    </div>
-
-                    <!-- Contact Information -->
-                    <div class="contact-info">
-                        <!-- Contact Cards -->
-                        <div class="contact-cards">
-                            <div class="contact-card">
-                                <div class="contact-icon contact-icon-blue">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <h4 class="contact-title">Call Us</h4>
-                                    <p class="contact-content">051 4447677</p>
-                                    <p class="contact-content">Sardar Ibrar</p>
-                                    <!-- <p class="contact-subcontent">Mon-Fri 9AM-6PM</p> -->
-                                </div>
-                            </div>
-
-                            <div class="contact-card">
-                                <div class="contact-icon contact-icon-green">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <h4 class="contact-title">Email Us</h4>
-                                    <p class="contact-content">almehranevents@gmail.com</p>
-                                    <p class="contact-subcontent">We respond within 24 hours</p>
-                                </div>
-                            </div>
-
-                            <div class="contact-card">
-                                <div class="contact-icon contact-icon-purple">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <h4 class="contact-title">Visit Us</h4>
-                                    <p class="contact-content">Shop no 9, Ahmed Plaza</p>
-                                    <p class="contact-subcontent">I-10 Markaz, Islamabad</p>
-                                </div>
-                            </div>
-
-                            <div class="contact-card">
-                                <div class="contact-icon contact-icon-orange">
-                                    <i class="fas fa-clock"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <h4 class="contact-title">Business Hours</h4>
-                                    <p class="contact-content">Mon-Sun: 24 hours</p>
-                                    <!-- <p class="contact-subcontent">Sat-Sun: 10AM-4PM</p> -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Map Placeholder -->
-                       <div class="map-container">
-    <h4 class="map-title">Find Us</h4>
-    <div class="map-placeholder">
-         
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d830.3750978517487!2d73.032055!3d33.644194!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df95a59c7c89ab%3A0xfa48570bb923f135!2sAl-Mehran%20Tent%20Service!5e0!3m2!1sen!2sus!4v1749453493281!5m2!1sen!2sus" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        
-    </div>
-</div>
-
-                        <!-- Social Media -->
-                        <div class="social-container">
-                            <h4 class="social-title">Connect With Us</h4>
-                            <div class="social-links">
-                                <a href="https://www.facebook.com/share/16sttpgb1m/?mibextid=qi2Omg" class="social-link social-facebook">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <!-- <a href="#" class="social-link social-twitter">
+            <!-- Social Media -->
+            <div class="social-container">
+              <h4 class="social-title">Connect With Us</h4>
+              <div class="social-links">
+                <a href="https://www.facebook.com/share/16sttpgb1m/?mibextid=qi2Omg"
+                  class="social-link social-facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <!-- <a href="#" class="social-link social-twitter">
                                     <i class="fab fa-twitter"></i>
                                 </a> -->
-                                <!-- <a href="#" class="social-link social-instagram">
+                <!-- <a href="#" class="social-link social-instagram">
                                     <i class="fab fa-instagram"></i>
                                 </a> -->
-                                <!-- <a href="#" class="social-link social-linkedin">
+                <!-- <a href="#" class="social-link social-linkedin">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
 
-    <!-- Footer -->
+  <!-- Footer -->
 
   <footer class="footer">
     <div class="container">
@@ -258,7 +269,7 @@
             <!-- <a href="#"><i class="ri-linkedin-fill"></i></a> -->
           </div>
         </div>
-        
+
         <div class="footer-links">
           <h4>Quick Links</h4>
           <ul>
@@ -269,7 +280,7 @@
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
-        
+
         <div class="footer-contact">
           <h4>Contact Info</h4>
           <ul>
@@ -280,25 +291,27 @@
           </ul>
         </div>
       </div>
-      
+
       <div class="footer-bottom">
         <p>&copy; 2026 Al Mehran Events Management. All Rights Reserved.</p>
       </div>
     </div>
   </footer>
-  
 
 
- <!-- WhatsApp Floating Button -->
-   <div>
-<a href="https://wa.me/923163381845?text=Hi%21%20I%20want%20to%20book%20your%20event%20management%20services%20for%20my%20event.%20Please%20share%20details%20about%20packages%20and%20availability." class="whatsapp-float" target="_blank">
-  <img src="../images/whatsapp-icon-free-png.webp" alt="WhatsApp" class="whatsapp-icon">
-</a>
-</div>
+
+  <!-- WhatsApp Floating Button -->
+  <div>
+    <a href="https://wa.me/923163381845?text=Hi%21%20I%20want%20to%20book%20your%20event%20management%20services%20for%20my%20event.%20Please%20share%20details%20about%20packages%20and%20availability."
+      class="whatsapp-float" target="_blank">
+      <img src="../images/whatsapp-icon-free-png.webp" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+  </div>
 
 
 
   <!-- <script src="sendEmail.js"></script> -->
-<script src="contact.js"></script>
+  <script src="contact.js"></script>
 </body>
+
 </html>

@@ -65,42 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Active navigation link on scroll
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-  
-  // function highlightNavLink() {
-  //   const scrollPosition = window.scrollY;
-    
-  //   // Highlight "Home" link when the page is near the top (scrollPosition < 50)
-  //   if (scrollPosition < 50) {
-  //     navLinks.forEach(link => {
-  //       link.classList.remove('active');
-  //       if (link.getAttribute('href') === '#') {
-  //         link.classList.add('active');
-  //       }
-  //     });
-  //   }
-
-  //   // Loop through sections and highlight the link for the currently visible section
-  //   sections.forEach(section => {
-  //     const sectionTop = section.offsetTop - 100;
-  //     const sectionHeight = section.offsetHeight;
-  //     const sectionId = section.getAttribute('id');
-
-  //     if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-  //       navLinks.forEach(link => {
-  //         link.classList.remove('active');
-  //         if (link.getAttribute('href') === `#${sectionId}`) {
-  //           link.classList.add('active');
-  //         }
-  //       });
-  //     }
-  //   });
-  // }
-
-  // window.addEventListener('scroll', highlightNavLink);
-
   // Add animation classes to elements when they enter viewport
   const animateElements = document.querySelectorAll('.service-card, .testimonial-card');
 
@@ -131,39 +95,24 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initial check for elements in view
   checkIfInView();
 
-  // Form validation for contact form (if added later)
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      // Basic form validation
-      let isValid = true;
-      const formInputs = contactForm.querySelectorAll('input, textarea');
-
-      formInputs.forEach(input => {
-        if (input.hasAttribute('required') && !input.value.trim()) {
-          isValid = false;
-          input.classList.add('error');
-        } else {
-          input.classList.remove('error');
-        }
-      });
-
-      if (isValid) {
-        // Show success message or submit form
-        const successMessage = document.createElement('div');
-        successMessage.className = 'success-message';
-        successMessage.textContent = 'Thank you! Your message has been sent.';
-        contactForm.reset();
-        contactForm.appendChild(successMessage);
-
-        // Remove message after 3 seconds
-        setTimeout(() => {
-          successMessage.remove();
-        }, 3000);
-      }
-    });
+  // ✅ Show success message if redirected back after FormSubmit
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('sent') === '1') {
+    const formContent = document.getElementById('contact-form-content');
+    const successMessage = document.getElementById('success-message');
+    if (formContent && successMessage) {
+      formContent.style.display = 'none';
+      successMessage.classList.remove('hidden');
+      successMessage.style.opacity = '0';
+      successMessage.style.transform = 'translateY(20px)';
+      setTimeout(() => {
+        successMessage.style.transition = 'all 0.5s ease';
+        successMessage.style.opacity = '1';
+        successMessage.style.transform = 'translateY(0)';
+      }, 100);
+      // Scroll to form area
+      successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   }
 });
 
@@ -185,14 +134,10 @@ let errors = {};
 
 // DOM elements
 const contactForm = document.getElementById('contactForm');
-const successMessage = document.getElementById('success-message');
-const formContent = document.getElementById('contact-form-content');
 
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', function () {
     if (contactForm) {
-        // contactForm.addEventListener('submit', handleFormSubmit);
-
         const inputs = contactForm.querySelectorAll('input, select, textarea');
         inputs.forEach(input => {
             input.addEventListener('blur', () => validateField(input));
@@ -271,73 +216,8 @@ function isValidPhone(phone) {
     return phoneRegex.test(cleanPhone) && cleanPhone.length >= 10;
 }
 
-// Submit form
-function handleFormSubmit(e) {
-    e.preventDefault();
-
-    if (!validateForm()) {
-        const firstError = contactForm.querySelector('.error');
-        if (firstError) {
-            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            firstError.focus();
-        }
-        return;
-    }
-
-    const formDataObj = new FormData(contactForm);
-    const submissionData = {};
-    for (let [key, value] of formDataObj.entries()) {
-        submissionData[key] = value;
-    }
-
-    const submitButton = contactForm.querySelector('.submit-button');
-    const originalText = submitButton.innerHTML;
-    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';
-    submitButton.disabled = true;
-
-    // Simulate sending (replace this with EmailJS or API call)
-    setTimeout(() => {
-        showSuccessMessage();
-
-        setTimeout(() => {
-            hideSuccessMessage();
-            resetForm();
-            submitButton.innerHTML = originalText;
-            submitButton.disabled = false;
-        }, 3000);
-    }, 1000);
-}
-
-// Show/hide success message
-function showSuccessMessage() {
-    formContent.classList.add('hidden');
-    successMessage.classList.remove('hidden');
-    successMessage.style.opacity = '0';
-    successMessage.style.transform = 'translateY(20px)';
-
-    setTimeout(() => {
-        successMessage.style.transition = 'all 0.5s ease';
-        successMessage.style.opacity = '1';
-        successMessage.style.transform = 'translateY(0)';
-    }, 100);
-}
-
-function hideSuccessMessage() {
-    successMessage.style.opacity = '0';
-    successMessage.style.transform = 'translateY(-20px)';
-
-    setTimeout(() => {
-        successMessage.classList.add('hidden');
-        formContent.classList.remove('hidden');
-        successMessage.style.opacity = '';
-        successMessage.style.transform = '';
-        successMessage.style.transition = '';
-    }, 500);
-}
-
 
 // WhatsApp button click tracking (optional)
 document.querySelector('.whatsapp-float')?.addEventListener('click', function() {
-  // You can add analytics tracking here if needed
   console.log('WhatsApp button clicked');
 });
