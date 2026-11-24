@@ -1,0 +1,13 @@
+# Redirect old URLs to clean new ones
+/home                     /                  301
+/home.html                /                  301
+/Services/services.html   /services/         301
+/Services/services        /services/         301
+/About/about.html         /about/            301
+/About/about              /about/            301
+/Contact/contact.html     /contact/          301
+/Contact/contact          /contact/          301
+/Deals/deals.html         /deals/            301
+/Deals/deals              /deals/            301
+/Deals/Deal1/deal1.html   /deals/deal1/      301
+/Deals/Deal1/deal1        /deals/deal1/      301
